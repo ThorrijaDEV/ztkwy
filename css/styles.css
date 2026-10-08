@@ -1,0 +1,284 @@
+/* ============================================================
+   Base
+   ============================================================ */
+
+:root {
+  --bg: #f6f3ef;
+  --ink: #23201d;
+  --ink-soft: #6d6660;
+  --line: #e0dad2;
+  --accent: #8c5a52;
+  --accent-soft: #f0e4e0;
+  --chaos: 0;
+
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+    "Times New Roman", serif;
+  --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: clamp(1.05rem, 0.98rem + 0.45vw, 1.2rem);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 34rem;
+  margin: 0 auto;
+  padding: clamp(2rem, 8vw, 4rem) 1.25rem clamp(3rem, 12vw, 6rem);
+}
+
+.screen[hidden] {
+  display: none;
+}
+
+/* ============================================================
+   Portada
+   ============================================================ */
+
+.cover {
+  text-align: left;
+}
+
+.cover__name {
+  margin: 0;
+  font-size: clamp(2.6rem, 12vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.cover__line {
+  margin: 0.75rem 0 2.75rem;
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   Carta
+   ============================================================ */
+
+.letter p {
+  margin: 0 0 1.35em;
+}
+
+.letter p:first-child::first-letter {
+  font-size: 1em;
+}
+
+.letter__bridge {
+  margin: 3rem 0 1.5rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ============================================================
+   Botones
+   ============================================================ */
+
+.button {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: calc(3.25rem + var(--chaos) * 0.6rem);
+  margin-top: 0.75rem;
+  padding: 0.9rem 1.25rem;
+  border: 1px solid var(--ink);
+  border-radius: 0.75rem;
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: calc(1.05rem + var(--chaos) * 0.35rem);
+  font-weight: calc(400 + var(--chaos) * 200);
+  letter-spacing: calc(0em + var(--chaos) * 0.04em);
+  line-height: 1.3;
+  cursor: pointer;
+  transition: transform 120ms ease, background-color 160ms ease,
+    box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.button:hover:not(:disabled) {
+  background: rgba(35, 32, 29, 0.04);
+}
+
+.button:active:not(:disabled) {
+  transform: scale(0.985);
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.button--quiet {
+  max-width: 14rem;
+}
+
+.button--yes {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: #5c322b;
+}
+
+.button--yes:hover:not(:disabled) {
+  background: #e7d6d1;
+}
+
+.button--no {
+  border-color: var(--line);
+  color: var(--ink-soft);
+}
+
+.button--no:hover:not(:disabled) {
+  border-color: var(--ink-soft);
+  background: rgba(35, 32, 29, 0.04);
+}
+
+/* ============================================================
+   Cuestionario
+   ============================================================ */
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz__lines {
+  margin: 0 0 1.75rem;
+}
+
+.quiz__line {
+  margin: 0 0 0.2em;
+  font-size: calc(1.3rem + var(--chaos) * 1.15rem);
+  font-weight: calc(400 + var(--chaos) * 300);
+  letter-spacing: calc(-0.005em - var(--chaos) * 0.025em);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.quiz__line:last-child {
+  margin-bottom: 0;
+}
+
+.quiz__line--shout {
+  text-transform: none;
+}
+
+.quiz__buttons {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.quiz__buttons--crowded {
+  grid-template-columns: repeat(auto-fit, minmax(5.25rem, 1fr));
+}
+
+.quiz__counter {
+  margin: 2.25rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+/* ============================================================
+   Final
+   ============================================================ */
+
+.screen--final .final__line {
+  margin: 0 0 0.35em;
+  font-size: clamp(1.4rem, 5.5vw, 1.9rem);
+}
+
+.final__line--soft {
+  color: var(--ink-soft);
+}
+
+/* ============================================================
+   Animaciones
+   ============================================================ */
+
+.is-active {
+  animation: appear 420ms ease both;
+}
+
+.quiz__line {
+  animation: rise 380ms ease both;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.is-shaking {
+  animation: shake 520ms ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  15% { transform: translateX(-6px); }
+  30% { transform: translateX(5px); }
+  45% { transform: translateX(-4px); }
+  60% { transform: translateX(3px); }
+  80% { transform: translateX(-2px); }
+}
+
+/* ============================================================
+   Accesibilidad
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --ink-soft: #4a4540;
+    --line: #b8b0a8;
+  }
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gabriela</title>
+  <meta name="description" content="Quería pedirte perdón." />
+  <meta name="color-scheme" content="light" />
+  <meta name="referrer" content="origin" />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <main class="page">
+
+    <!-- ============ PORTADA ============ -->
+    <section class="screen screen--cover is-active" data-screen="portada">
+      <h1 class="cover__name">Gabriela</h1>
+      <p class="cover__line">Quería pedirte perdón.</p>
+      <button class="button button--quiet" type="button" data-action="empezar">Leer</button>
+    </section>
+
+    <!-- ============ CARTA ============ -->
+    <section class="screen screen--letter" data-screen="carta" hidden>
+      <div class="letter">
+        <p>Creo que después de lo que me dijiste entendí algo que antes no estaba entendiendo.</p>
+
+        <p>Yo no quiero cambiarte. (Creo que se nota ya)</p>
+
+        <p>De verdad que no.</p>
+
+        <p>No quiero que seas más cariñosa, que me abraces más, que contestes de una determinada manera ni que hagas cosas simplemente porque yo espero que las hagas. (Y lo que menos quiero es perderte)</p>
+
+        <p>Me gustas como eres, y no quiero que tengas que convertirte en alguien diferente para estar conmigo.</p>
+
+        <p>Pero creo que, aunque no quiera hacerlo, lo estoy haciendo inconscientemente.</p>
+
+        <p>Y entiendo que eso te pueda hacer sentir que tienes que ser de una determinada manera conmigo, y lo siento.</p>
+
+        <p>No quiero que estar conmigo se convierta en tener que cumplir unas expectativas que yo mismo he creado.</p>
+
+        <p>Tampoco quiero perderte.</p>
+
+        <p>Y precisamente por eso quiero aprender a hacerlo mejor, porque no quiero que mi manera de querer termine haciéndote sentir que tienes que cambiar.</p>
+
+        <p>No te estoy pidiendo que cambies tú.</p>
+
+        <p>El que tiene que aprender soy yo.</p>
+
+        <p>Perdón por haberte hecho sentir así.</p>
+      </div>
+
+      <p class="letter__bridge">Y ahora una última cosa...</p>
+
+      <button class="button button--quiet" type="button" data-action="preguntar">Vale</button>
+    </section>
+
+    <!-- ============ CUESTIONARIO ============ -->
+    <section class="screen screen--quiz" data-screen="cuestionario" hidden>
+      <div class="quiz" id="quiz"></div>
+      <p class="quiz__counter" id="quiz-counter" aria-hidden="true"></p>
+    </section>
+
+    <!-- ============ FINAL ============ -->
+    <section class="screen screen--final" data-screen="final" hidden>
+      <p class="final__line final__line--soft">Ahora sí.</p>
+      <p class="final__line">Gracias por responder.</p>
+      <p class="final__line final__line--soft">No voy a hacerte otra pregunta.</p>
+    </section>
+
+  </main>
+
+  <noscript>
+    <p style="padding:2rem;font-family:Georgia,serif">
+      Esta página necesita JavaScript para funcionar.
+    </p>
+  </noscript>
+
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
